@@ -3,23 +3,90 @@
         <el-main>
             <!-- Page One -->
             <el-row>
-                <el-col> 
+                <el-col :span="24"> 
+                    <div class="text item">Wedding</div>
+                    <div class="text item">2022-02-19 16:00</div>
+                    <div class="text item">施韋男 & 徐毓</div>
+                    <div class="text item">我們衷心希望能夠有您的參與</div>
+                    <div class="text item">讓這個充滿意義的日子更為圓滿</div>
+                </el-col>
+                <el-col :span="24"> 
                     <el-image :src="require('@/components/images/p1_bg.jpeg')" ></el-image>
                 </el-col>
             </el-row>
 
             <!-- Page Two -->
-            <el-row></el-row>
+            <el-row :gutter="12">
+                <el-col :span="12">
+                    <!-- <el-card class="box-card" shadow="always">
+                        <template #header>
+                            <div class="card-header">
+                                <span>新郎</span>
+                            </div>
+                        </template>
+                        <div class="text item" style="font-size: 1.2em;">施韋男</div>
+                        <el-card class="box-card">
+                            <template #header>
+                                <div class="card-header">
+                                    <span>主婚人</span>
+                                </div>
+                            </template>
+                            <div class="text item" style="font-size: 1em;">施滿郎</div>
+                            <div class="text item" style="font-size: 1em;">李麗萍</div>
+                        </el-card>
+                    </el-card> -->
+                    <h3>新郎</h3>
+                    <div class="text item" style="font-size: 1.2em;">施韋男</div>
+                    <el-divider></el-divider>
+
+                    <div><h4>主婚人</h4></div>
+                    <el-divider></el-divider>
+                    <div class="text item">施滿郎</div>
+                    <div class="text item">李麗萍</div>
+                </el-col>
+                <el-col :span="12">
+                    <!-- <el-card class="box-card" shadow="always"> -->
+                        <!-- <template #header> -->
+                            <!-- <div class="card-header"> -->
+                                <!-- <span>新娘</span> -->
+                            <!-- </div> -->
+                        <!-- </template> -->
+                        <h3>新娘</h3>
+                        <div class="text item" style="font-size: 1.2em;">徐毓</div>
+                        <el-divider></el-divider>
+
+                        <div><h4>主婚人</h4></div>
+                        <el-divider></el-divider>
+                        <div class="text item">徐進發</div>
+                        <div class="text item">趙美惠(願心)</div>
+                        
+                    <!-- </el-card> -->
+                </el-col>
+            </el-row>
+
+            <el-divider></el-divider>
 
             <!-- Page Three -->
-            <el-row></el-row>
+            <el-row :gutter="12">
+                <el-col :span="24">
+                    <!-- <el-card class="box-card" shadow="always"> -->
+                        <div class="text item"><i class="el-icon-date"></i> 2022-02-19</div>
+                        <div class="text item"><i class="el-icon-time"></i> 16:00 入場</div>
+                        <div class="text item"><i class="el-icon-time"></i> 16:30 證婚</div>
+                        <div class="text item"><i class="el-icon-time"></i> 17:30 晚宴</div>
+                        <div class="text item"><i class="el-icon-map-location"></i></div>
+                        <div ><el-link type="success" href="https://www.google.com.tw/maps/place/421%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E6%9C%88%E6%B9%96%E8%B7%AF85%E5%B7%B73%E8%99%9F/@24.3138207,120.7014455,15.5z/data=!4m5!3m4!1s0x346910092e4b6d45:0x2fbb08daf7ef0439!8m2!3d24.3145471!4d120.7067843?hl=zh-TW">台中市后里區月湖路85巷</el-link></div>
+                        <!-- <div class="text item"><i class="el-icon-map-location"></i></div> -->
+                    <!-- </el-card> -->
+                </el-col>
+            </el-row>
 
             <!-- Page Four -->
             <el-row>
-                <el-col style="position: relative; height: 300px;">
-                    <el-card class="box-card" style="top: 0px; left: 0px; position: absolute; z-index: 999; background-color: rgba(255, 255, 255, 0.7)">
-                        <el-descriptions class="margin-top" title="誠摯邀請" :column="1" :size="size" border>
-
+                <!-- <el-col style="position: relative; height: 300px;">
+                    <el-card class="box-card" shadow="always" style="top: 0px; left: 0px; position: absolute; z-index: 999; background-color: rgba(255, 255, 255, 0.7)">
+                        <div class="item"><h4>誠摯邀請</h4></div>
+                        <el-descriptions class="margin-top" :column="1" :size="size" border>
                             <el-descriptions-item>
                                 <template #label> <i class="el-icon-user"></i> 姓名 </template>
                                 <el-input v-model="cus_name" placeholder="姓名" clearable />
@@ -40,8 +107,6 @@
                                 <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
                             </el-descriptions-item>
 
-                            
-
                             <el-descriptions-item>
                                 <template #label> <i class="el-icon-chat-dot-round"></i> 備註 </template>
                                 <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
@@ -53,6 +118,54 @@
                     </el-card>
                     
                     <el-image :src="require('@/components/images/p3_bg.png')" style="position: absolute; top: 0px; left: 0px;"></el-image>
+                </el-col> -->
+
+                <el-col>
+                    <el-image :src="require('@/components/images/p3_bg.png')"></el-image>
+                </el-col>
+            </el-row>
+            
+            <el-row>
+                <el-col>
+                    <!-- <el-card class="box-card" > -->
+                        <div><h4>誠摯邀請</h4></div>
+                        <el-descriptions class="margin-top" :column="1" :size="size" border>
+                            <template #extra>
+                            <!-- <el-descriptions-item> -->
+                                <!-- <div class="text item"><i class="el-icon-date"></i> 誠摯邀請</div> -->
+                            <!-- </el-descriptions-item> -->
+                            </template>
+                            <el-descriptions-item>
+                                <template #label> <i class="el-icon-user"></i> 姓名 </template>
+                                <el-input v-model="cus_name" placeholder="姓名" clearable />
+                            </el-descriptions-item>
+
+                            <el-descriptions-item>
+                                <template #label> <i class="el-icon-knife-fork"></i> 葷食 </template>
+                                <el-input-number v-model="adults" :min="0" :max="10" placeholder="人數" />
+                            </el-descriptions-item>
+
+                            <el-descriptions-item>
+                                <template #label> <i class="el-icon-fork-spoon"></i> 素食 </template>
+                                <el-input-number v-model="vegetarian_diet" :min="0" :max="this.adults + this.children" placeholder="素食" />
+                            </el-descriptions-item>
+                            
+                            <el-descriptions-item>
+                                <template #label> <i class="el-icon-bicycle"></i> 小孩 </template>
+                                <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
+                            </el-descriptions-item>
+
+                            <el-descriptions-item>
+                                <template #label> <i class="el-icon-chat-dot-round"></i> 備註 </template>
+                                <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
+                            </el-descriptions-item>
+                        </el-descriptions>
+
+                        <el-button type="success" class="btn-lg" style="margin-top:10px">送出<i class="el-icon-position "></i></el-button>
+
+                    <!-- </el-card> -->
+                    
+                    
                 </el-col>
             </el-row>
         </el-main>
@@ -60,9 +173,6 @@
 </template>
 
 <script>
-
-// import p1 from '@/components/images/p1_bg.jpeg'
-
 export default {
   name: 'Wedding',
   props: {},
@@ -94,5 +204,20 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.text {
+  font-size: 14px;
+}
+
+.item {
+  padding: 16px 0;
+}
+
+.box-card {
+  width: 100%;
+}
+.el-row{
+    margin-top: 20px;
 }
 </style>
