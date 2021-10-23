@@ -24,6 +24,18 @@ export default {
 </script>
 
 <style>
+
+@font-face {
+  font-family: "HanyiSentyJournal";
+  src: local("HanyiSentyJournal"),
+   url(./components/fonts/HanyiSentyJournal.ttf) format("truetype");
+}
+
+body{
+    margin: 0px !important;
+}
+
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -31,7 +43,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   /* margin-top: 60px; */
-  /* margin: 0px; */
+  margin: 0px;
   /* padding: 0px; */
 }
 </style>
