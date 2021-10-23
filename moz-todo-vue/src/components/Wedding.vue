@@ -18,7 +18,7 @@
 
             <!-- Page Two -->
             <el-row>
-                <el-col :offset="6" :span="6">
+                <el-col :offset="4" :span="8">
                     <h2>新郎</h2>
                     <div class="big-text item">施韋男</div>
                     <el-divider></el-divider>
@@ -29,7 +29,7 @@
                     <div class="text item">李麗萍</div>
                 </el-col>
 
-                <el-col :span="6">
+                <el-col :span="8">
                     <h2>新娘</h2>
                     <div class="big-text item">徐 毓</div>
                     <el-divider></el-divider>
@@ -71,35 +71,36 @@
             <el-row>
                 <el-col>
 
-                    <div><h2>誠摯邀請</h2></div>
-                    <div><h2>出席請填寫以下訊息以便統計人數唷</h2></div>
+                    <div><h2>誠摯邀請您與您的家人</h2></div>
+                    <div><h2>出席請填寫以下訊息</h2></div>
+                    <div><h2>以便統計人數唷</h2></div>
                     
                     <el-descriptions class="margin-top" :column="1" :size="size" border>
                         <template #extra>
                         </template>
                         <el-descriptions-item>
-                            <template #label > <i class="el-icon-user"></i><span class="text">姓名</span></template>
+                            <template #label > <i class="el-icon-user text"></i><span class="text">姓名</span></template>
                             <el-input v-model="cus_name" placeholder="姓名" clearable />
                         </el-descriptions-item>
                         <el-descriptions-item>
-                            <template #label> <i class="el-icon-knife-fork"></i> <span class="text">葷食</span> </template>
+                            <template #label> <i class="el-icon-knife-fork text"></i> <span class="text">葷食</span> </template>
                             <el-input-number v-model="adults" :min="0" :max="10" placeholder="葷食" />
                         </el-descriptions-item>
                         <el-descriptions-item>
-                            <template #label> <i class="el-icon-fork-spoon"></i> <span class="text">素食</span> </template>
+                            <template #label> <i class="el-icon-fork-spoon text"></i> <span class="text">素食</span> </template>
                             <el-input-number v-model="vegetarian_diet" :min="0" :max="this.adults + this.children" placeholder="素食" />
                         </el-descriptions-item>
                         
                         <el-descriptions-item>
-                            <template #label> <i class="el-icon-bicycle"></i> <span class="text">小孩</span> </template>
+                            <template #label> <i class="el-icon-bicycle text"></i> <span class="text">小孩</span> </template>
                             <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
                         <el-descriptions-item>
-                            <template #label> <i class="el-icon-chat-dot-round"></i> <span class="text">備註</span>  </template>
+                            <template #label> <i class="el-icon-chat-dot-round text"></i> <span class="text">備註</span>  </template>
                             <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
                         </el-descriptions-item>
                     </el-descriptions>
-                    <el-button type="success" class="btn-lg" style="margin-top:10px">送出<i class="el-icon-position "></i></el-button>
+                    <el-button type="success" class="btn-lg text w-100" style="margin-top:10px">送出<i class="el-icon-position "></i></el-button>
 
                 </el-col>
             </el-row>
@@ -129,9 +130,7 @@ export default {
 .el-main{
     padding: 1px;
 }
-h3 {
-  margin: 20px 0 0;
-}
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -144,13 +143,7 @@ a {
   color: #42b983;
 }
 
-.big-text {
-  font-size: 26px;
-}
 
-.text {
-  font-size: 22px;
-}
 
 .item {
   padding: 8px 0;
@@ -165,8 +158,68 @@ a {
 .el-divider--horizontal{
     margin: 10px 0;
 }
+
+
+h2{
+    font-size: 64px;
+}
+
+h3{
+    font-size: 48px;
+    margin: 20px 0 0;
+}
+
+.text {
+    font-size: 48px;
+}
+
+.big-text {
+    font-size: 54px;
+}
+
 .el-link.el-link--success{
-    font-size: 22px;
+    font-size: 48px;
+}
+
+
+@media screen and (max-width: 420px) {  
+    h2{
+        font-size: 1.5em;
+    }
+
+    h3{
+        font-size: 1.7em;
+        margin: 20px 0 0;
+    }
+
+    .text {
+        font-size: 22px;
+    }
+
+    .big-text {
+        font-size: 26px;
+    }
+
+    .el-link.el-link--success{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    h2{
+        font-size: 24px;
+    }
+    .text {
+        font-size: 22px;
+    }
+
+    .big-text {
+        font-size: 26px;
+    }
+
+    .el-link.el-link--success{
+        font-size: 22px;
+    }
 }
 
 /* .el-descriptions__body{
