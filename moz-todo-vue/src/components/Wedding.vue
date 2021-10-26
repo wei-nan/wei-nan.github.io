@@ -55,8 +55,9 @@
                     <div class="text item"><i class="el-icon-time"></i> 16：00 入場</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：30 證婚</div>
                     <div class="text item"><i class="el-icon-time"></i> 17：30 晚宴</div>
-                    <div class="text item"><i class="el-icon-map-location"></i>
-                        <el-link type="success" href="https://www.google.com.tw/maps/place/421%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E6%9C%88%E6%B9%96%E8%B7%AF85%E5%B7%B73%E8%99%9F/@24.3138207,120.7014455,15.5z/data=!4m5!3m4!1s0x346910092e4b6d45:0x2fbb08daf7ef0439!8m2!3d24.3145471!4d120.7067843?hl=zh-TW">台中市后里區月湖路85巷</el-link>
+                    <div class="text item"><i class="el-icon-map-location big-text"></i></div>
+                    <div class="text item">
+                        <el-link href="https://www.google.com.tw/maps/place/421%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E6%9C%88%E6%B9%96%E8%B7%AF85%E5%B7%B73%E8%99%9F/@24.3138207,120.7014455,15.5z/data=!4m5!3m4!1s0x346910092e4b6d45:0x2fbb08daf7ef0439!8m2!3d24.3145471!4d120.7067843?hl=zh-TW">台中市后里區月湖路85巷</el-link>
                     </div>
                 </el-col>
             </el-row>
@@ -75,32 +76,31 @@
                     <div><h2>出席請填寫以下訊息</h2></div>
                     <div><h2>以便統計人數唷</h2></div>
                     
-                    <el-descriptions class="margin-top" :column="1" :size="size" border>
-                        <template #extra>
-                        </template>
-                        <el-descriptions-item>
+                    <el-descriptions class="margin-top" :column="2" border direction="vertical">
+                        <el-descriptions-item label-align="center" align="center">
                             <template #label > <i class="el-icon-user text"></i><span class="text">姓名</span></template>
                             <el-input v-model="cus_name" placeholder="姓名" clearable />
                         </el-descriptions-item>
-                        <el-descriptions-item>
+                        <el-descriptions-item label-align="center" align="center">
                             <template #label> <i class="el-icon-knife-fork text"></i> <span class="text">葷食</span> </template>
-                            <el-input-number v-model="adults" :min="0" :max="10" placeholder="葷食" />
+                            <el-input-number v-model="adults" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item>
+                        <el-descriptions-item label-align="center" align="center">
                             <template #label> <i class="el-icon-fork-spoon text"></i> <span class="text">素食</span> </template>
-                            <el-input-number v-model="vegetarian_diet" :min="0" :max="this.adults + this.children" placeholder="素食" />
+                            <el-input-number v-model="vegetarian_diet" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
                         
-                        <el-descriptions-item>
+                        <el-descriptions-item label-align="center" align="center">
                             <template #label> <i class="el-icon-bicycle text"></i> <span class="text">小孩</span> </template>
                             <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item>
+                        <el-descriptions-item label-align="center" align="center">
                             <template #label> <i class="el-icon-chat-dot-round text"></i> <span class="text">備註</span>  </template>
                             <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
                         </el-descriptions-item>
                     </el-descriptions>
-                    <el-button type="success" class="btn-lg text w-100" style="margin-top:10px">送出<i class="el-icon-position "></i></el-button>
+
+                    <el-button type="success" class="btn-lg text w-100" style="margin-top:10px" @click="submit">送出<i class="el-icon-position "></i></el-button>
 
                 </el-col>
             </el-row>
@@ -110,11 +110,71 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'Wedding',
   props: {},
   data() {
       return {
+          cus_name: "",
+          adults: 0,
+          vegetarian_diet: 0,
+          children: 0,
+          remark: "",
+          response: "",
+      }
+  },
+  methods: {
+    submit: async function() {
+        if (this.cus_name == ""){
+          this.$notify({
+              title: '請稍後',
+              message: '煩請留下您的大名',
+              type: 'warning'
+          });
+          return;
+        }
+
+        var headers = {};
+        headers["cus-name"] = this.cus_name;
+        headers["adults"] = this.adults;
+        headers["vegetarian-diet"] = this.vegetarian_diet;
+        headers["children"] = this.children;
+        headers["remark"] = this.remark;
+
+        this.response = await axios.post('http://13.90.199.6:5080/db/invite', {}, {headers: headers})
+            .then(function(response) {
+                return response;
+                
+                
+            })
+            .catch(function (response) {
+                return response;
+                
+        });
+    }
+  },
+  watch: {
+      response: function() {
+        if(this.response.status == 200)
+            this.$notify({
+                title: '完成',
+                message: '我們收到您的資訊了，謝謝',
+                type: 'success'
+            });
+        else
+            this.$notify({
+                title: '糟糕',
+                message: '似乎發生了些問題，請稍後再嘗試',
+                type: 'warning'
+            });
+        
+        this.cus_name =  "";
+        this.adults =  0;
+        this.vegetarian_diet =  0;
+        this.children =  0;
+        this.remark =  "";
       }
   }
 }
@@ -142,7 +202,6 @@ li {
 a {
   color: #42b983;
 }
-
 
 
 .item {
@@ -177,8 +236,9 @@ h3{
     font-size: 54px;
 }
 
-.el-link.el-link--success{
+.el-link.el-link--default{
     font-size: 48px;
+    text-decoration: underline;
 }
 
 
@@ -200,7 +260,7 @@ h3{
         font-size: 26px;
     }
 
-    .el-link.el-link--success{
+    .el-link.el-link--default{
         font-size: 22px;
     }
 }
@@ -209,6 +269,11 @@ h3{
     h2{
         font-size: 24px;
     }
+    h3{
+        font-size: 1.7em;
+        margin: 20px 0 0;
+    }
+
     .text {
         font-size: 22px;
     }
@@ -217,7 +282,7 @@ h3{
         font-size: 26px;
     }
 
-    .el-link.el-link--success{
+    .el-link.el-link--default{
         font-size: 22px;
     }
 }
