@@ -12,7 +12,7 @@
 
             <el-row>
                 <el-col>
-                    <el-image :src="require('@/components/images/yu.jpg')" ></el-image>
+                    <el-image :src="require('@/components/images/p1.jpg')" ></el-image>
                 </el-col>
             </el-row>
 
@@ -42,7 +42,7 @@
 
             <el-row>
                 <el-col>
-                    <el-image :src="require('@/components/images/wei.jpg')" ></el-image>
+                    <el-image :src="require('@/components/images/p2.jpg')" ></el-image>
                 </el-col>
             </el-row>
 
@@ -65,7 +65,7 @@
             <!-- Page Four -->
             <el-row>
                 <el-col>
-                    <el-image :src="require('@/components/images/both.jpg')"></el-image>
+                    <el-image :src="require('@/components/images/p3.jpg')"></el-image>
                 </el-col>
             </el-row>
             
@@ -100,7 +100,7 @@
                         </el-descriptions-item>
                     </el-descriptions>
 
-                    <el-button type="success" class="btn-lg text w-100" style="margin-top:10px" @click="submit">送出<i class="el-icon-position "></i></el-button>
+                    <el-button type="success" class="btn-lg text w-100" style="margin-top:10px" @click="submit" :loading="has_submit">送出<i class="el-icon-position "></i></el-button>
 
                 </el-col>
             </el-row>
@@ -123,6 +123,7 @@ export default {
           children: 0,
           remark: "",
           response: "",
+          has_submit: false
       }
   },
   methods: {
@@ -135,6 +136,8 @@ export default {
           });
           return;
         }
+
+        this.has_submit = true;
 
         var headers = {};
         headers["cus-name"] = this.cus_name;
@@ -169,7 +172,7 @@ export default {
                 message: '似乎發生了些問題，請稍後再嘗試',
                 type: 'warning'
             });
-        
+        this.has_submit = false;
         this.cus_name =  "";
         this.adults =  0;
         this.vegetarian_diet =  0;
