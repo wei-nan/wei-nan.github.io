@@ -53,9 +53,9 @@
                 <el-col :span="24">
                     <div class="text item"><i class="el-icon-date"></i> 2022-02-19</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：00 入場</div>
-                    <div class="small-text item">我們有準備小點心，太晚到就吃不到囉</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：30 證婚</div>
                     <div class="text item"><i class="el-icon-time"></i> 17：30 晚宴</div>
+                    <div class="small-text item">我們有準備小點心，太晚到就吃不到囉</div>
                     <div class="small-text item">我們的餐點是自助式的喔</div>
                     <div class="small-text item">我們全程都是在戶外，記得保暖喔</div>
                     <div class="text item"><i class="el-icon-map-location big-text"></i></div>
