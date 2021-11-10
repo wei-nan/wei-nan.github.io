@@ -53,8 +53,11 @@
                 <el-col :span="24">
                     <div class="text item"><i class="el-icon-date"></i> 2022-02-19</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：00 入場</div>
+                    <div class="small-text item">我們有準備小點心，太晚到就吃不到囉</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：30 證婚</div>
                     <div class="text item"><i class="el-icon-time"></i> 17：30 晚宴</div>
+                    <div class="small-text item">我們的餐點是自助式的喔</div>
+                    <div class="small-text item">我們全程都是在戶外，記得保暖喔</div>
                     <div class="text item"><i class="el-icon-map-location big-text"></i></div>
                     <div class="text item">
                         <el-link href="https://www.google.com.tw/maps/place/421%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E6%9C%88%E6%B9%96%E8%B7%AF85%E5%B7%B73%E8%99%9F/@24.3138207,120.7014455,15.5z/data=!4m5!3m4!1s0x346910092e4b6d45:0x2fbb08daf7ef0439!8m2!3d24.3145471!4d120.7067843?hl=zh-TW">台中市后里區月湖路85巷</el-link>
@@ -72,29 +75,29 @@
             <el-row>
                 <el-col>
 
-                    <div><h2>誠摯邀請您與您的家人</h2></div>
-                    <div><h2>出席請填寫以下訊息</h2></div>
-                    <div><h2>以便統計人數唷</h2></div>
+                    <div class="big-text">誠摯邀請您與您的家人</div>
+                    <div class="big-text">出席請填寫以下訊息</div>
+                    <div class="big-text">以便統計人數唷</div>
                     
                     <el-descriptions class="margin-top" :column="2" border direction="vertical">
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td"> 
                             <template #label > <i class="el-icon-user text"></i><span class="text">姓名</span></template>
                             <el-input v-model="cus_name" placeholder="姓名" clearable />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-knife-fork text"></i> <span class="text">葷食</span> </template>
                             <el-input-number v-model="adults" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-fork-spoon text"></i> <span class="text">素食</span> </template>
                             <el-input-number v-model="vegetarian_diet" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
                         
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-bicycle text"></i> <span class="text">小孩</span> </template>
                             <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-chat-dot-round text"></i> <span class="text">備註</span>  </template>
                             <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
                         </el-descriptions-item>
@@ -206,6 +209,9 @@ a {
   color: #42b983;
 }
 
+.el-td{
+    padding: 12px 0px;
+}
 
 .item {
   padding: 8px 0;
@@ -229,6 +235,10 @@ h2{
 h3{
     font-size: 48px;
     margin: 20px 0 0;
+}
+
+.small-text {
+    font-size: 36px;
 }
 
 .text {
@@ -255,6 +265,10 @@ h3{
         margin: 20px 0 0;
     }
 
+    .small-text {
+        font-size: 18px;
+    }
+
     .text {
         font-size: 22px;
     }
@@ -275,6 +289,10 @@ h3{
     h3{
         font-size: 1.7em;
         margin: 20px 0 0;
+    }
+
+    .small-text {
+        font-size: 18px;
     }
 
     .text {
