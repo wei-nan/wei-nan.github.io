@@ -191,6 +191,7 @@ export default {
 
 *{
     font-family: "HanyiSentyJournal", Arial;
+    font-weight: lighter;
 }
 
 .el-main{
