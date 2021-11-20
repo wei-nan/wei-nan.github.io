@@ -79,24 +79,24 @@
                     <div class="big-text">以便統計人數唷</div>
                     
                     <el-descriptions class="margin-top" :column="2" border direction="vertical">
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td"> 
                             <template #label > <i class="el-icon-user text"></i><span class="text">姓名</span></template>
                             <el-input v-model="cus_name" placeholder="姓名" clearable />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-knife-fork text"></i> <span class="text">葷食</span> </template>
                             <el-input-number v-model="adults" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-fork-spoon text"></i> <span class="text">素食</span> </template>
                             <el-input-number v-model="vegetarian_diet" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
                         
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-bicycle text"></i> <span class="text">小孩</span> </template>
                             <el-input-number v-model="children" :min="0" :max="10" placeholder="人數" />
                         </el-descriptions-item>
-                        <el-descriptions-item label-align="center" align="center">
+                        <el-descriptions-item label-align="center" align="center" class="el-td">
                             <template #label> <i class="el-icon-chat-dot-round text"></i> <span class="text">備註</span>  </template>
                             <el-input v-model="remark" type="textarea" maxlength="30" placeholder="備註" clearable show-word-limit />
                         </el-descriptions-item>
@@ -209,6 +209,9 @@ a {
   color: #42b983;
 }
 
+.el-td{
+    padding: 12px 0px;
+}
 
 .item {
   padding: 8px 0;
@@ -232,6 +235,10 @@ h2{
 h3{
     font-size: 48px;
     margin: 20px 0 0;
+}
+
+.small-text {
+    font-size: 36px;
 }
 
 .text {
@@ -261,6 +268,10 @@ td{
         margin: 20px 0 0;
     }
 
+    .small-text {
+        font-size: 18px;
+    }
+
     .text {
         font-size: 22px;
     }
@@ -281,6 +292,10 @@ td{
     h3{
         font-size: 1.7em;
         margin: 20px 0 0;
+    }
+
+    .small-text {
+        font-size: 18px;
     }
 
     .text {
