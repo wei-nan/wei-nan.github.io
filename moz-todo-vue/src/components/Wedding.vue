@@ -53,8 +53,10 @@
                 <el-col :span="24">
                     <div class="text item"><i class="el-icon-date"></i> 2022-02-19</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：00 入場</div>
+                    <div class="item">有 Candy Bar，晚來就吃不到囉</div>
                     <div class="text item"><i class="el-icon-time"></i> 16：30 證婚</div>
                     <div class="text item"><i class="el-icon-time"></i> 17：30 晚宴</div>
+                    <div class="item">我們提供的是自助餐點喔</div>
                     <div class="text item"><i class="el-icon-map-location big-text"></i></div>
                     <div class="text item">
                         <el-link href="https://www.google.com.tw/maps/place/421%E5%8F%B0%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E6%9C%88%E6%B9%96%E8%B7%AF85%E5%B7%B73%E8%99%9F/@24.3138207,120.7014455,15.5z/data=!4m5!3m4!1s0x346910092e4b6d45:0x2fbb08daf7ef0439!8m2!3d24.3145471!4d120.7067843?hl=zh-TW">台中市后里區月湖路85巷</el-link>
@@ -72,9 +74,9 @@
             <el-row>
                 <el-col>
 
-                    <div><h2>誠摯邀請您與您的家人</h2></div>
-                    <div><h2>出席請填寫以下訊息</h2></div>
-                    <div><h2>以便統計人數唷</h2></div>
+                    <div class="big-text">誠摯邀請您與您的家人</div>
+                    <div class="big-text">出席請填寫以下訊息</div>
+                    <div class="big-text">以便統計人數唷</div>
                     
                     <el-descriptions class="margin-top" :column="2" border direction="vertical">
                         <el-descriptions-item label-align="center" align="center">
@@ -146,7 +148,7 @@ export default {
         headers["children"] = this.children;
         headers["remark"] = this.remark;
 
-        this.response = await axios.post('http://13.90.199.6:5080/db/invite', {}, {headers: headers})
+        this.response = await axios.post('http://20.124.32.253:5080/db/invite', {}, {headers: headers})
             .then(function(response) {
                 return response;
                 
@@ -188,6 +190,7 @@ export default {
 
 *{
     font-family: "HanyiSentyJournal", Arial;
+    font-weight: lighter;
 }
 
 .el-main{
@@ -244,6 +247,9 @@ h3{
     text-decoration: underline;
 }
 
+td{
+    padding: 12px 0px;
+}
 
 @media screen and (max-width: 420px) {  
     h2{
