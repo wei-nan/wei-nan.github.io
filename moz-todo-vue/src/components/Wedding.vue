@@ -142,19 +142,20 @@ export default {
         this.has_submit = true;
 
         var headers = {};
-        headers["cus-name"] = this.cus_name;
+        headers["cus-name"] = encodeURIComponent(this.cus_name);
         headers["adults"] = this.adults;
         headers["vegetarian-diet"] = this.vegetarian_diet;
         headers["children"] = this.children;
-        headers["remark"] = this.remark;
-
+        headers["remark"] = encodeURIComponent(this.remark);
         this.response = await axios.post('http://20.124.32.253:5080/db/invite', {}, {headers: headers})
+        // this.response = await axios.post('http://127.0.0.1:5080/db/invite', {}, {headers: headers})
             .then(function(response) {
                 return response;
                 
                 
             })
             .catch(function (response) {
+                console.log(response);
                 return response;
                 
         });
