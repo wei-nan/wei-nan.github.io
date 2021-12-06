@@ -107,6 +107,16 @@
                 </el-col>
             </el-row>
 
+            <el-row style="margin-top: 20px;">
+                <el-col>
+                    <div class="big-text item">謝謝您的填寫</div>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-col>
+                    <div class="big-text item">我們期待那天與您相見</div>
+                </el-col>
+            </el-row>
         </el-main>
     </el-container>
 </template>
