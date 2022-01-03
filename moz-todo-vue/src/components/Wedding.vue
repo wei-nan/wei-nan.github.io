@@ -4,20 +4,28 @@
             <!-- Page One -->
             <el-row>
                 <el-col :span="24"> 
-                    <el-image :src="require('@/components/images/wedding.jpg')"></el-image>
-                    <div class="big-text item">我們衷心希望能夠有您的參與</div>
-                    <div class="big-text item">讓這個充滿意義的日子更為圓滿</div>
+                    <!-- <el-image :src="require('@/components/images/wedding.jpg')"></el-image> -->
+                    <!-- <div class="big-text item">我們衷心希望能夠有您的參與</div> -->
+                    <!-- <div class="big-text item">讓這個充滿意義的日子更為圓滿</div> -->
+                    <div class="big-text item">2022-02-19</div>
+                    <div class="big-text item">期待與您相見</div>
                 </el-col>
             </el-row>
 
-            <el-row>
+            <!-- <el-row>
                 <el-col>
                     <el-image :src="require('@/components/images/p1.jpg')" ></el-image>
+                </el-col>
+            </el-row> -->
+
+            <el-row>
+                <el-col>
+                    <el-image :src="require('@/components/images/wedding-map.jpg')" ></el-image>
                 </el-col>
             </el-row>
 
             <!-- Page Two -->
-            <el-row>
+            <!-- <el-row>
                 <el-col :offset="4" :span="8">
                     <h2>新郎</h2>
                     <div class="big-text item">施韋男</div>
@@ -38,13 +46,19 @@
                     <div class="text item">徐進發</div>
                     <div class="text item">趙美惠<sub>願心</sub></div>
                 </el-col>
-            </el-row>
+            </el-row> -->
 
             <el-row>
                 <el-col>
-                    <el-image :src="require('@/components/images/p2.jpg')" ></el-image>
+                    <el-image :src="require('@/components/images/wedding-remark.jpg')" ></el-image>
                 </el-col>
             </el-row>
+
+            <!-- <el-row>
+                <el-col>
+                    <el-image :src="require('@/components/images/p2.jpg')" ></el-image>
+                </el-col>
+            </el-row> -->
 
             <!-- <el-divider></el-divider> -->
 
@@ -63,15 +77,15 @@
                     </div>
                 </el-col>
             </el-row>
-
+            
             <!-- Page Four -->
-            <el-row>
+            <!-- <el-row>
                 <el-col>
                     <el-image :src="require('@/components/images/p3.jpg')"></el-image>
                 </el-col>
-            </el-row>
+            </el-row> -->
             
-            <el-row>
+            <!-- <el-row>
                 <el-col>
 
                     <div class="big-text">誠摯邀請您與您的家人</div>
@@ -105,9 +119,9 @@
                     <el-button type="success" class="btn-lg text w-100" style="margin-top:10px" @click="submit" :loading="has_submit">送出<i class="el-icon-position "></i></el-button>
 
                 </el-col>
-            </el-row>
+            </el-row> -->
 
-            <el-row style="margin-top: 20px;">
+            <!-- <el-row style="margin-top: 20px;">
                 <el-col>
                     <div class="big-text item">謝謝您的填寫</div>
                 </el-col>
@@ -116,7 +130,7 @@
                 <el-col>
                     <div class="big-text item">我們期待那天與您相見</div>
                 </el-col>
-            </el-row>
+            </el-row> -->
         </el-main>
     </el-container>
 </template>
