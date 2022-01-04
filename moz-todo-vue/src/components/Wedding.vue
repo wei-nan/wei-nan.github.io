@@ -19,13 +19,6 @@
             </el-row> -->
 
             <el-row>
-                <el-col>
-                    <el-image :src="require('@/components/images/wedding-map.jpg')" ></el-image>
-                </el-col>
-            </el-row>
-
-            <!-- Page Two -->
-            <!-- <el-row>
                 <el-col :offset="4" :span="8">
                     <h2>新郎</h2>
                     <div class="big-text item">施韋男</div>
@@ -46,7 +39,16 @@
                     <div class="text item">徐進發</div>
                     <div class="text item">趙美惠<sub>願心</sub></div>
                 </el-col>
-            </el-row> -->
+            </el-row>
+
+            <el-row>
+                <el-col>
+                    <el-image :src="require('@/components/images/wedding-map.jpg')" ></el-image>
+                </el-col>
+            </el-row>
+
+            <!-- Page Two -->
+            
 
             <el-row>
                 <el-col>
